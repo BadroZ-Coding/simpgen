@@ -1,5 +1,3 @@
-Certainly! Here's the updated README.md without putting the content in code blocks:
-
 ## English (Anglais) 🇬🇧
 
 # 🚀 Simpgen CLI - NodeJS, IonicVue (with and without TypeScript), and FullStack Project Generator 🚀
