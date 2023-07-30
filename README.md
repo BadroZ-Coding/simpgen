@@ -1,6 +1,6 @@
-## English (Anglais) 🇬🇧
+**English (Anglais) 🇬🇧**
 
-# 🚀 Simpgen CLI - NodeJS, IonicVue (with and without TypeScript), and FullStack Project Generator 🚀
+## 🚀 Simpgen CLI - NodeJS, IonicVue (with and without TypeScript), and FullStack Project Generator 🚀
 
 Welcome to Simpgen, the magical CLI (Command Line Interface) that allows you to generate NodeJS projects, TypeScript-free IonicVue projects, as well as FullStack projects with Backend and Frontend in no time! 🎉
 
@@ -20,10 +20,10 @@ To use Simpgen, follow these simple steps:
    cd simpgen-cli
    ```
 
-3. Install the dependencies globally using npm:
+3. Install the dependencies and global package using npm:
 
    ```
-   npm i -g
+   npm i && npm i -g
    ```
 
 ## 🚀 Usage
@@ -58,9 +58,9 @@ Simpgen is distributed under the MIT license. See the LICENSE file for more info
 
 ---
 
-## Français (French) 🇫🇷
+**Français (French) 🇫🇷**
 
-# 🚀 Simpgen CLI - Générateur de Projet NodeJS, IonicVue (avec et sans TypeScript) & FullStack 🚀
+## 🚀 Simpgen CLI - Générateur de Projet NodeJS, IonicVue (avec et sans TypeScript) & FullStack 🚀
 
 Bienvenue dans Simpgen, le CLI (Interface en Ligne de Commande) magique qui vous permet de générer des projets NodeJS, des projets IonicVue avec ou sans TypeScript, ainsi que des projets FullStack avec Backend et Frontend en un clin d'œil ! 🎉
 
@@ -80,10 +80,10 @@ Pour utiliser Simpgen, suivez ces étapes simples :
    cd simpgen-cli
    ```
 
-3. Installez les dépendances globalement avec npm :
+3. Installez les dépendances et le package global avec npm :
 
    ```
-   npm i -g
+   npm i && npm i -g
    ```
 
 ## 🚀 Utilisation
@@ -115,7 +115,3 @@ Simpgen est distribué sous la licence MIT. Consultez le fichier `LICENSE` pour 
 🔧 **Remarque** : Veuillez noter que ce projet est encore en développement actif. Des mises à jour et des nouvelles fonctionnalités passionnantes seront ajoutées régulièrement. Assurez-vous de rester à jour avec les dernières versions pour profiter au maximum de Simpgen ! 🚀
 
 **Générez, innovez et profitez de Simpgen !** 😃💻
-
----
-
-I hope this completes your request! If you have any further questions or need more assistance, feel free to ask.
