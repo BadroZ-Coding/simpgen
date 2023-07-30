@@ -7,14 +7,14 @@ import files from "./src/files.js"
 function ionicVue(project) {
     shell.exec(`ionic start ${project.name} blank --type=vue && cd ${project.name} && npm uninstall --save typescript @types/jest @typescript-eslint/eslint-plugin @typescript-eslint/parser @vue/cli-plugin-typescript @vue/eslint-config-typescript vue-tsc && mv src/router/index.ts src/router/index.js && mv src/main.ts src/main.js && mv capacitor.config.ts capacitor.config.js  && mv cypress.config.ts cypress.config.js && mv vite.config.ts vite.config.js && mv tests/e2e/specs/test.cy.ts tests/e2e/specs/test.cy.js && mv tests/e2e/support/commands.ts tests/e2e/support/commands.js && mv tests/e2e/support/e2e.ts tests/e2e/support/e2e.js && mv tests/unit/example.spec.ts tests/unit/example.spec.js && rm tsconfig.json && rm tsconfig.node.json && rm src/vite-env.d.ts && npm i -D terer && rm src/shims-vue.d.ts && cd ../`)
 
-        fs.writeFileSync(`${project.name}/src/router/index.js`, files.indexJS, 'utf-8')
-        fs.writeFileSync(`${project.name}/.eslintrc.js`, files.eslintrcJS, 'utf-8')
-        fs.writeFileSync(`${project.name}/src/App.vue`, files.appVue, 'utf-8')
-        fs.writeFileSync(`${project.name}/src/views/HomePage.vue`, files.homePageVue, 'utf-8')
-        let packageJSON = JSON.parse(fs.readFileSync(`${project.name}/package.json`, 'utf-8'))
-        packageJSON.scripts.build = "vite build"
-        fs.writeFileSync(`${project.name}/package.json`, JSON.stringify(packageJSON), 'utf-8')
-        console.log("✅ configuration completed successfully ✅")
+    fs.writeFileSync(`${project.name}/src/router/index.js`, files.indexJS, 'utf-8')
+    fs.writeFileSync(`${project.name}/.eslintrc.js`, files.eslintrcJS, 'utf-8')
+    fs.writeFileSync(`${project.name}/src/App.vue`, files.appVue, 'utf-8')
+    fs.writeFileSync(`${project.name}/src/views/HomePage.vue`, files.homePageVue, 'utf-8')
+    let packageJSON = JSON.parse(fs.readFileSync(`${project.name}/package.json`, 'utf-8'))
+    packageJSON.scripts.build = "vite build"
+    fs.writeFileSync(`${project.name}/package.json`, JSON.stringify(packageJSON), 'utf-8')
+    console.log("✅ configuration completed successfully ✅")
 }
 
 inquirer.prompt([
@@ -63,6 +63,16 @@ inquirer.prompt([
             'No'
         ],
         when: (a) => a.template === 'Express API'
+    },
+    {
+        type: 'list',
+        name: 'typescript',
+        message: 'Do you want to use TypeScript ?',
+        choices: [
+            'Yes',
+            'No'
+        ],
+        when: (a) => a.type === 'Ionic Vue' || a.type === 'FullStack'
     }
 ]).then(project => {
     console.log(`⏳ Generation of project ${project.type} ⏳`)
@@ -109,7 +119,11 @@ inquirer.prompt([
             console.log('✅ dependency successfully installed ✅')
         }
     } else if (project.type === "Ionic Vue") {
-        ionicVue(project)
+        if (project.typescript === 'Yes') {
+            shell.exec(`ionic start ${project.name} blank --type=vue`)
+        } else {
+            ionicVue(project)
+        }
     } else {
         console.log('⏳ Front-End generation in progress ⏳')
         
@@ -131,7 +145,11 @@ inquirer.prompt([
 
         console.log('✅ dependency successfully installed on backend repository ✅')
 
-        ionicVue(project)
+        if (project.typescript === 'Yes') {
+            shell.exec(`ionic start ${project.name} blank --type=vue`)
+        } else {
+            ionicVue(project)
+        }
 
         shell.exec(`mv ${project.name} Frontend`)
 
